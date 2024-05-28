@@ -24,9 +24,9 @@ jobs:
             - uses: azure/login@v1
               name: Azure login
               with:
-                client-id: ${{ secrets.AZURE_CREDENTIALS }}
-                subscription-id: ${{ secrets.AZURE_CREDENTIALS }}
-                tenant-id: ${{ secrets.AZURE_CREDENTIALS }}
+                client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C4EAA6E3B7AB4EBF8FA0C04D32D8D0C8 }}
+                subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_50B31A6695EF4667BACC760171259672 }}
+                tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B67C1C1B5FA3493CA65F41F57B2D1665 }}
             - name: Build and push image to ACR
               run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
     deploy:
@@ -42,9 +42,9 @@ jobs:
             - uses: azure/login@v1
               name: Azure login
               with:
-                client-id: ${{ secrets.AZURE_CREDENTIALS }}
-                subscription-id: ${{ secrets.AZURE_CREDENTIALS }}
-                tenant-id: ${{ secrets.AZURE_CREDENTIALS }}
+                client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C4EAA6E3B7AB4EBF8FA0C04D32D8D0C8 }}
+                subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_50B31A6695EF4667BACC760171259672 }}
+                tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B67C1C1B5FA3493CA65F41F57B2D1665 }}
             - uses: azure/use-kubelogin@v1
               name: Set up kubelogin for non-interactive login
               with:
